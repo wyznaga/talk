@@ -18,6 +18,16 @@ module.exports = recl
     s = @lz d.getSeconds()
     "~#{h}.#{m}.#{s}"
 
+  convTimeFullDate: (time) ->
+    d = new Date time
+    h = @lz d.getHours()
+    m = @lz d.getMinutes()
+    s = @lz d.getSeconds()
+    y = @lz d.getYear()
+    mt = @lz d.getMonth()
+    dt = @lz d.getDate()
+    "~#{y}.#{mt}.#{dt} ~#{h}.#{m}.#{s}"
+
   _handleAudi: (e) ->
     audi = _.map $(e.target).closest('.path').find('div'), (div) ->
       return "~"+$(div).text()
@@ -106,6 +116,7 @@ module.exports = recl
           )
           h3 {className:"path",onClick:@_handleAudi,key:"audi"}, audi
           h3 {className:"time",key:"time"}, @convTime thought.statement.date
+          h3 {className:"time full-date,key:"time full-date"}, @convTimeFullDate thought.statement.date
         )
         (div {className:"speech",key:"speech"},
           @renderSpeech speech,bouquet
