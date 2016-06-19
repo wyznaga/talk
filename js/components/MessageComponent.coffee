@@ -116,7 +116,7 @@ module.exports = recl
           )
           h3 {className:"path",onClick:@_handleAudi,key:"audi"}, audi
           h3 {className:"time",key:"time"}, @convTime thought.statement.date
-          h3 {className:"time full-date,key:"time full-date"}, @convTimeFullDate thought.statement.date
+          h3 {className:"time full-date",key:"time full-date"}, @convTimeFullDate thought.statement.date
         )
         (div {className:"speech",key:"speech"},
           @renderSpeech speech,bouquet
